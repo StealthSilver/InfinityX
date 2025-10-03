@@ -1,3 +1,7 @@
 INFINITY X 
 
 create automated workflows 
+
+web hook -> two different backends talk to each other via web hooks
+
+e.g. razorpay : 
