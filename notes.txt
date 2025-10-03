@@ -4,4 +4,5 @@ create automated workflows
 
 web hook -> two different backends talk to each other via web hooks
 
-e.g. razorpay : as banks dont provide api's to everyone so payment gateways (razorpay, stripe, paytm, phonepay) help in between
+e.g. razorpay : as banks dont provide api's to everyone so payment gateways (razorpay, stripe, paytm, phonepay) help in between. 
+there are always razorpay and the bank backends talking to each other via web hooks
