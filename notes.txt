@@ -4,8 +4,10 @@ create automated workflows
 
 Web hook -> two different backends talk to each other via web hooks
 Asynchronous backend communication
-transactions outbox pattern
+transactional outbox pattern
 
 e.g. razorpay : as banks dont provide api's to everyone so payment gateways (razorpay, stripe, paytm, phonepay) help in between. 
 there are always razorpay and the bank backends talking to each other via web hooks
+
+
 
