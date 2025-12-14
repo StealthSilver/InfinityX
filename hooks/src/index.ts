@@ -22,6 +22,7 @@ app.post("/hooks/catch/:userId/:zapId", async (req, res) => {
       },
     });
 
+    // transaction to create outbox entry
     await tx.zapRunOutbox.create({
       data: {
         zapRunId: run.id,
@@ -33,4 +34,6 @@ app.post("/hooks/catch/:userId/:zapId", async (req, res) => {
   });
 });
 
-app.listen(3002);
+app.listen(3002, () => {
+  console.log("Server is running on port 3002");
+});
