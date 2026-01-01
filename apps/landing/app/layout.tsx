@@ -5,7 +5,7 @@ export const metadata = {
   description:
     "Developer-first platform for building, deploying, and monitoring automated workflows",
   icons: {
-    icon: "/inflogo.svg",
+    icon: "/xlogo.svg",
   },
 };
 
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/inflogo.svg" type="image/svg+xml" />
+        <link rel="icon" href="/xlogo.svg" type="image/svg+xml" />
       </head>
       <body>{children}</body>
     </html>

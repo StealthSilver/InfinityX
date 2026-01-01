@@ -1,22 +1,22 @@
-import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 export function LoginPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const { login, loading } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
+    setError("");
     try {
       await login(email, password);
-      navigate('/dashboard');
+      navigate("/dashboard");
     } catch (err: any) {
-      setError(err.response?.data?.message || 'Login failed');
+      setError(err.response?.data?.message || "Login failed");
     }
   };
 
@@ -37,12 +37,18 @@ export function LoginPage() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                 <span className="text-white font-bold text-sm">∞</span>
               </div>
-              <span className="text-lg font-bold tracking-tight">InfinityX</span>
+              <span className="text-lg font-bold tracking-tight">
+                InfinityX
+              </span>
             </Link>
 
             <div className="space-y-2 mb-8">
-              <h1 className="text-3xl font-bold tracking-tight">Welcome back</h1>
-              <p className="text-slate-400">Sign in to your account to continue</p>
+              <h1 className="text-3xl font-bold tracking-tight">
+                Welcome back
+              </h1>
+              <p className="text-slate-400">
+                Sign in to your account to continue
+              </p>
             </div>
 
             {error && (
@@ -53,7 +59,9 @@ export function LoginPage() {
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-slate-300">Email</label>
+                <label className="block text-sm font-medium text-slate-300">
+                  Email
+                </label>
                 <input
                   type="email"
                   value={email}
@@ -65,7 +73,9 @@ export function LoginPage() {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-slate-300">Password</label>
+                <label className="block text-sm font-medium text-slate-300">
+                  Password
+                </label>
                 <input
                   type="password"
                   value={password}
@@ -95,8 +105,11 @@ export function LoginPage() {
             </form>
 
             <p className="mt-8 text-center text-sm text-slate-400">
-              Don't have an account?{' '}
-              <Link to="/signup" className="text-blue-400 hover:text-blue-300 font-medium transition-colors">
+              Don't have an account?{" "}
+              <Link
+                to="/signup"
+                className="text-blue-400 hover:text-blue-300 font-medium transition-colors"
+              >
                 Sign up
               </Link>
             </p>
@@ -110,8 +123,13 @@ export function LoginPage() {
             <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-500/20">
               <span className="text-white text-3xl font-bold">∞</span>
             </div>
-            <h2 className="text-2xl font-bold mb-3">Build workflows like you write code</h2>
-            <p className="text-slate-400">Run them like infrastructure. Developer-first automation for modern teams.</p>
+            <h2 className="text-2xl font-bold mb-3">
+              Build workflows like you write code
+            </h2>
+            <p className="text-slate-400">
+              Run them like infrastructure. Developer-first automation for
+              modern teams.
+            </p>
           </div>
         </div>
       </div>
