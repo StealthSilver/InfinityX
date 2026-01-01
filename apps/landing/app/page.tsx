@@ -1,28 +1,32 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 const features = [
   {
-    title: 'Sequential Workflows',
-    description: 'Build workflows with ordered steps that execute in sequence. Add HTTP requests, transforms, and more.',
+    title: "Sequential Workflows",
+    description:
+      "Build workflows with ordered steps that execute in sequence. Add HTTP requests, transforms, and more.",
   },
   {
-    title: 'Webhook Triggers',
-    description: 'Trigger workflows via HTTP webhooks. Integrate with any service that can make HTTP requests.',
+    title: "Webhook Triggers",
+    description:
+      "Trigger workflows via HTTP webhooks. Integrate with any service that can make HTTP requests.",
   },
   {
-    title: 'Real-time Observability',
-    description: 'Monitor workflow executions in real-time. View detailed logs for every step.',
+    title: "Real-time Observability",
+    description:
+      "Monitor workflow executions in real-time. View detailed logs for every step.",
   },
   {
-    title: 'Developer-First',
-    description: 'Built for developers. Clean API, structured logs, and predictable behavior.',
+    title: "Developer-First",
+    description:
+      "Built for developers. Clean API, structured logs, and predictable behavior.",
   },
 ];
 
 export default function Home() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const handleWaitlist = (e: React.FormEvent) => {
@@ -30,7 +34,7 @@ export default function Home() {
     if (!email) return;
     setSubmitted(true);
     setTimeout(() => {
-      setEmail('');
+      setEmail("");
       setSubmitted(false);
     }, 3000);
   };
@@ -47,20 +51,26 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-800/50 bg-slate-950/80 backdrop-blur-lg">
         <div className="max-w-7xl mx-auto flex h-16 items-center justify-between px-4 md:px-6">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-              <span className="text-white font-bold text-sm">∞</span>
-            </div>
-            <span className="text-lg font-bold tracking-tight">InfinityX</span>
+            <img src="/inflogo.svg" alt="InfinityX" className="h-8 w-auto" />
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm text-slate-400 hover:text-white transition-colors">
+            <a
+              href="#features"
+              className="text-sm text-slate-400 hover:text-white transition-colors"
+            >
               Features
             </a>
-            <a href="#how" className="text-sm text-slate-400 hover:text-white transition-colors">
+            <a
+              href="#how"
+              className="text-sm text-slate-400 hover:text-white transition-colors"
+            >
               How It Works
             </a>
-            <a href="#waitlist" className="text-sm text-slate-400 hover:text-white transition-colors">
+            <a
+              href="#waitlist"
+              className="text-sm text-slate-400 hover:text-white transition-colors"
+            >
               Waitlist
             </a>
           </nav>
@@ -97,7 +107,8 @@ export default function Home() {
             </h1>
 
             <p className="text-xl md:text-lg text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Run them like infrastructure. Developer-first workflow automation with real-time observability built in.
+              Run them like infrastructure. Developer-first workflow automation
+              with real-time observability built in.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
@@ -105,7 +116,10 @@ export default function Home() {
                 Start Building
                 <span>→</span>
               </button>
-              <a href="#features" className="w-full sm:w-auto px-8 py-3 border border-slate-700 hover:border-slate-600 rounded-lg font-semibold transition-colors">
+              <a
+                href="#features"
+                className="w-full sm:w-auto px-8 py-3 border border-slate-700 hover:border-slate-600 rounded-lg font-semibold transition-colors"
+              >
                 See Features
               </a>
             </div>
@@ -120,16 +134,18 @@ export default function Home() {
                       <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/60" />
                       <div className="h-2.5 w-2.5 rounded-full bg-green-500/60" />
                     </div>
-                    <span className="text-xs text-slate-500 ml-2">workflow-builder.ts</span>
+                    <span className="text-xs text-slate-500 ml-2">
+                      workflow-builder.ts
+                    </span>
                   </div>
 
                   <div className="p-6 font-mono text-sm overflow-x-auto">
                     <div className="space-y-2">
                       <div>
-                        <span className="text-blue-400">const</span>{' '}
-                        <span className="text-slate-200">workflow</span>{' '}
-                        <span className="text-slate-600">=</span>{' '}
-                        <span className="text-blue-400">new</span>{' '}
+                        <span className="text-blue-400">const</span>{" "}
+                        <span className="text-slate-200">workflow</span>{" "}
+                        <span className="text-slate-600">=</span>{" "}
+                        <span className="text-blue-400">new</span>{" "}
                         <span className="text-green-400">Workflow</span>
                         <span className="text-slate-600">(</span>
                         <span className="text-orange-400">"user-sync"</span>
@@ -140,19 +156,21 @@ export default function Home() {
                         <span className="text-purple-400">step</span>
                         <span className="text-slate-600">(</span>
                         <span className="text-orange-400">"fetch-users"</span>
-                        <span className="text-slate-600">,</span>{' '}
-                        <span className="text-blue-400">async</span>{' '}
-                        <span className="text-slate-600">() =&gt;</span> {'{'}
+                        <span className="text-slate-600">,</span>{" "}
+                        <span className="text-blue-400">async</span>{" "}
+                        <span className="text-slate-600">() =&gt;</span> {"{"}
                       </div>
                       <div className="pl-8">
-                        <span className="text-blue-400">return</span>{' '}
+                        <span className="text-blue-400">return</span>{" "}
                         <span className="text-purple-400">fetch</span>
                         <span className="text-slate-600">(</span>
-                        <span className="text-orange-400">"https://api.example.com/users"</span>
+                        <span className="text-orange-400">
+                          "https://api.example.com/users"
+                        </span>
                         <span className="text-slate-600">)</span>
                       </div>
                       <div className="pl-4">
-                        <span className="text-slate-600">{'}'}</span>
+                        <span className="text-slate-600">{"}"}</span>
                         <span className="text-slate-600">)</span>
                       </div>
                       <div className="pl-4">
@@ -160,9 +178,10 @@ export default function Home() {
                         <span className="text-purple-400">step</span>
                         <span className="text-slate-600">(</span>
                         <span className="text-orange-400">"sync-to-db"</span>
-                        <span className="text-slate-600">,</span>{' '}
+                        <span className="text-slate-600">,</span>{" "}
                         <span className="text-blue-400">async</span>
-                        <span className="text-slate-600">(ctx) =&gt;</span> {'{...}'}
+                        <span className="text-slate-600">(ctx) =&gt;</span>{" "}
+                        {"{...}"}
                         <span className="text-slate-600">)</span>
                       </div>
                       <div className="pl-4">
@@ -182,12 +201,18 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 md:py-32 border-t border-slate-800/50">
+      <section
+        id="features"
+        className="py-20 md:py-32 border-t border-slate-800/50"
+      >
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Everything you need to automate</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Everything you need to automate
+            </h2>
             <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              Built for developers who demand reliability and visibility into every execution.
+              Built for developers who demand reliability and visibility into
+              every execution.
             </p>
           </div>
 
@@ -198,7 +223,7 @@ export default function Home() {
                 className="group rounded-xl border border-slate-800 bg-slate-900/50 p-6 transition-all duration-300 hover:border-blue-500/50 hover:bg-slate-900/70 hover:shadow-lg hover:shadow-blue-500/10"
               >
                 <div className="w-12 h-12 rounded-lg bg-blue-500/10 text-blue-400 mb-4 group-hover:bg-blue-500/20 transition-colors flex items-center justify-center font-bold">
-                  {'→'}
+                  {"→"}
                 </div>
                 <h3 className="font-semibold mb-2 text-lg">{feature.title}</h3>
                 <p className="text-sm text-slate-400">{feature.description}</p>
@@ -211,29 +236,31 @@ export default function Home() {
       {/* How It Works */}
       <section id="how" className="py-20 md:py-32 border-t border-slate-800/50">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">How It Works</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+            How It Works
+          </h2>
 
           <div className="space-y-8">
             {[
               {
-                step: '01',
-                title: 'Create a Project',
-                desc: 'Organize your automations in projects for better management and collaboration.',
+                step: "01",
+                title: "Create a Project",
+                desc: "Organize your automations in projects for better management and collaboration.",
               },
               {
-                step: '02',
-                title: 'Build a Workflow',
-                desc: 'Define sequential HTTP steps that execute one after another with full visibility.',
+                step: "02",
+                title: "Build a Workflow",
+                desc: "Define sequential HTTP steps that execute one after another with full visibility.",
               },
               {
-                step: '03',
-                title: 'Trigger & Monitor',
-                desc: 'Start workflows via API or webhooks. Monitor execution in real-time with detailed logs.',
+                step: "03",
+                title: "Trigger & Monitor",
+                desc: "Start workflows via API or webhooks. Monitor execution in real-time with detailed logs.",
               },
               {
-                step: '04',
-                title: 'Scale with Confidence',
-                desc: 'Your workflows scale automatically. Handle thousands of concurrent runs without breaking a sweat.',
+                step: "04",
+                title: "Scale with Confidence",
+                desc: "Your workflows scale automatically. Handle thousands of concurrent runs without breaking a sweat.",
               },
             ].map((item, i) => (
               <div key={i} className="flex gap-8 items-start">
@@ -242,7 +269,9 @@ export default function Home() {
                 </div>
                 <div className="pt-2">
                   <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
-                  <p className="text-slate-400 text-lg leading-relaxed">{item.desc}</p>
+                  <p className="text-slate-400 text-lg leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -251,15 +280,21 @@ export default function Home() {
       </section>
 
       {/* Waitlist Section */}
-      <section id="waitlist" className="py-20 md:py-32 border-t border-slate-800/50">
+      <section
+        id="waitlist"
+        className="py-20 md:py-32 border-t border-slate-800/50"
+      >
         <div className="max-w-2xl mx-auto px-4 md:px-6 text-center">
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-8">
             <span className="text-white text-3xl font-bold">∞</span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Join the Waitlist</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Join the Waitlist
+          </h2>
           <p className="text-lg text-slate-400 mb-8">
-            Be the first to know when we launch. Early access for developers who want to build reliable automation.
+            Be the first to know when we launch. Early access for developers who
+            want to build reliable automation.
           </p>
 
           {submitted ? (
@@ -268,7 +303,10 @@ export default function Home() {
               <span className="font-medium">You're on the list!</span>
             </div>
           ) : (
-            <form onSubmit={handleWaitlist} className="flex flex-col sm:flex-row gap-3 max-w-sm mx-auto">
+            <form
+              onSubmit={handleWaitlist}
+              className="flex flex-col sm:flex-row gap-3 max-w-sm mx-auto"
+            >
               <input
                 type="email"
                 placeholder="you@example.com"
@@ -305,13 +343,22 @@ export default function Home() {
             </p>
 
             <div className="flex items-center gap-6">
-              <a href="#" className="text-sm text-slate-400 hover:text-white transition-colors">
+              <a
+                href="#"
+                className="text-sm text-slate-400 hover:text-white transition-colors"
+              >
                 Docs
               </a>
-              <a href="#" className="text-sm text-slate-400 hover:text-white transition-colors">
+              <a
+                href="#"
+                className="text-sm text-slate-400 hover:text-white transition-colors"
+              >
                 Status
               </a>
-              <a href="#" className="text-sm text-slate-400 hover:text-white transition-colors">
+              <a
+                href="#"
+                className="text-sm text-slate-400 hover:text-white transition-colors"
+              >
                 Contact
               </a>
             </div>
