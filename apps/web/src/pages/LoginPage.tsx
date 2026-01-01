@@ -25,7 +25,7 @@ export function LoginPage() {
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
       </div>
 
       <div className="min-h-screen flex relative z-10">
@@ -113,9 +113,9 @@ export function LoginPage() {
 
         {/* Right Panel - Decorative */}
         <div className="hidden lg:flex flex-1 bg-gradient-to-br from-slate-900 to-slate-950 border-l border-slate-800 items-center justify-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-cyan-500/5" />
           <div className="relative text-center max-w-md px-8">
-            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-500/20">
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-500/20">
               <svg
                 className="h-10 w-10 text-white"
                 viewBox="0 0 40 40"

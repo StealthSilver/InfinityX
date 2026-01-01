@@ -153,7 +153,7 @@ export default function Home() {
                       </div>
                       <div className="pl-4">
                         <span className="text-slate-600">.</span>
-                        <span className="text-purple-400">step</span>
+                        <span className="text-cyan-400">step</span>
                         <span className="text-slate-600">(</span>
                         <span className="text-orange-400">"fetch-users"</span>
                         <span className="text-slate-600">,</span>{" "}
@@ -162,7 +162,7 @@ export default function Home() {
                       </div>
                       <div className="pl-8">
                         <span className="text-blue-400">return</span>{" "}
-                        <span className="text-purple-400">fetch</span>
+                        <span className="text-cyan-400">fetch</span>
                         <span className="text-slate-600">(</span>
                         <span className="text-orange-400">
                           "https://api.example.com/users"
@@ -175,7 +175,7 @@ export default function Home() {
                       </div>
                       <div className="pl-4">
                         <span className="text-slate-600">.</span>
-                        <span className="text-purple-400">step</span>
+                        <span className="text-cyan-400">step</span>
                         <span className="text-slate-600">(</span>
                         <span className="text-orange-400">"sync-to-db"</span>
                         <span className="text-slate-600">,</span>{" "}
