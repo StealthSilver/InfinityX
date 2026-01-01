@@ -1,0 +1,23 @@
+{
+  "name": "infinity-x",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Developer-first workflow automation platform",
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter backend dev\" \"pnpm --filter web dev\" \"pnpm --filter landing dev\"",
+    "build": "pnpm --filter shared build && pnpm --filter backend build && pnpm --filter web build && pnpm --filter landing build",
+    "test": "pnpm --filter backend test && pnpm --filter web test",
+    "db:migrate": "pnpm --filter backend prisma migrate dev",
+    "db:push": "pnpm --filter backend prisma db push",
+    "db:seed": "pnpm --filter backend prisma db seed",
+    "db:studio": "pnpm --filter backend prisma studio"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "packageManager": "pnpm@8.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
