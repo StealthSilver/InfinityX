@@ -35,13 +35,26 @@ export function SignupPage() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
       </div>
 
-      <div className="min-h-screen flex">
+      <div className="min-h-screen flex relative z-10">
         {/* Left Panel - Decorative */}
         <div className="hidden lg:flex flex-1 bg-gradient-to-br from-slate-900 to-slate-950 border-r border-slate-800 items-center justify-center relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
           <div className="relative text-center max-w-md px-8">
             <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-500/20">
-              <span className="text-white text-3xl font-bold">∞</span>
+              <svg
+                className="h-10 w-10 text-white"
+                viewBox="0 0 40 40"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M24 0H16V12.0632C15.9663 14.2434 14.1885 16 12.0005 16H0V24H8.68629C10.808 24 12.8429 23.1571 14.3431 21.6569L21.6569 14.3431C23.1571 12.8429 24 10.808 24 8.68629V0Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M16 40H24V27.9368C24.0337 25.7566 25.8115 24 27.9995 24H40V16H31.3137C29.192 16 27.1571 16.8429 25.6569 18.3431L18.3431 25.6569C16.8429 27.1571 16 29.192 16 31.3137V40Z"
+                  fill="currentColor"
+                />
+              </svg>
             </div>
             <h2 className="text-2xl font-bold mb-3">
               Automate with confidence
@@ -54,16 +67,11 @@ export function SignupPage() {
         </div>
 
         {/* Right Panel - Form */}
-        <div className="flex-1 flex flex-col justify-center px-8 py-12 lg:px-16 relative z-10">
+        <div className="flex-1 flex flex-col justify-center px-8 py-12 lg:px-16">
           <div className="mx-auto w-full max-w-sm">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 mb-12">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                <span className="text-white font-bold text-sm">∞</span>
-              </div>
-              <span className="text-lg font-bold tracking-tight">
-                InfinityX
-              </span>
+              <img src="/inflogo.svg" alt="InfinityX" className="h-8 w-auto" />
             </Link>
 
             <div className="space-y-2 mb-8">
