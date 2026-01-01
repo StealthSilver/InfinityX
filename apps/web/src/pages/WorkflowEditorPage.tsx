@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import api from '../lib/api';
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import api from "../lib/api";
 
 interface Step {
   id: string;
@@ -15,8 +15,8 @@ export function WorkflowEditorPage() {
   const [steps, setSteps] = useState<Step[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [newStepUrl, setNewStepUrl] = useState('');
-  const [newStepMethod, setNewStepMethod] = useState('GET');
+  const [newStepUrl, setNewStepUrl] = useState("");
+  const [newStepMethod, setNewStepMethod] = useState("GET");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,11 +25,12 @@ export function WorkflowEditorPage() {
 
   const fetchWorkflow = async () => {
     try {
-      const { data } = await api.get(`/projects/${data.projectId}/workflows/${workflowId}`);
+      const response = await api.get(`/api/projects/${workflowId}/workflows`);
+      const data = response.data;
       setWorkflow(data);
       setSteps(data.steps || []);
     } catch (error) {
-      console.error('Failed to fetch workflow', error);
+      console.error("Failed to fetch workflow", error);
     } finally {
       setLoading(false);
     }
@@ -40,26 +41,38 @@ export function WorkflowEditorPage() {
     const step: Step = {
       id: Math.random().toString(),
       order: steps.length + 1,
-      type: 'HTTP',
-      config: { url: newStepUrl, method: newStepMethod, headers: {}, body: null },
+      type: "HTTP",
+      config: {
+        url: newStepUrl,
+        method: newStepMethod,
+        headers: {},
+        body: null,
+      },
     };
     setSteps([...steps, step]);
-    setNewStepUrl('');
+    setNewStepUrl("");
   };
 
   const removeStep = (stepId: string) => {
-    setSteps(steps.filter((s) => s.id !== stepId).map((s, i) => ({ ...s, order: i + 1 })));
+    setSteps(
+      steps
+        .filter((s) => s.id !== stepId)
+        .map((s, i) => ({ ...s, order: i + 1 }))
+    );
   };
 
   const saveWorkflow = async () => {
     if (!workflow?.projectId) return;
     setSaving(true);
     try {
-      await api.put(`/projects/${workflow.projectId}/workflows/${workflowId}/steps`, { steps });
-      alert('Workflow saved!');
+      await api.put(
+        `/projects/${workflow.projectId}/workflows/${workflowId}/steps`,
+        { steps }
+      );
+      alert("Workflow saved!");
     } catch (error) {
-      console.error('Failed to save workflow', error);
-      alert('Failed to save workflow');
+      console.error("Failed to save workflow", error);
+      alert("Failed to save workflow");
     } finally {
       setSaving(false);
     }
@@ -70,7 +83,10 @@ export function WorkflowEditorPage() {
   return (
     <div className="space-y-6">
       <div>
-        <button onClick={() => navigate(-1)} className="text-[#4F8CFF] hover:underline mb-4">
+        <button
+          onClick={() => navigate(-1)}
+          className="text-[#4F8CFF] hover:underline mb-4"
+        >
           ← Back
         </button>
         <h1 className="text-3xl font-bold text-white">{workflow?.name}</h1>
@@ -82,7 +98,9 @@ export function WorkflowEditorPage() {
           <h2 className="text-lg font-semibold text-white mb-4">Add Step</h2>
           <div className="space-y-3">
             <div>
-              <label className="block text-sm text-[#9CA3AF] mb-2">HTTP Method</label>
+              <label className="block text-sm text-[#9CA3AF] mb-2">
+                HTTP Method
+              </label>
               <select
                 value={newStepMethod}
                 onChange={(e) => setNewStepMethod(e.target.value)}
@@ -113,13 +131,15 @@ export function WorkflowEditorPage() {
 
         <div className="lg:col-span-2 space-y-4">
           <div className="flex justify-between items-center">
-            <h2 className="text-lg font-semibold text-white">Steps ({steps.length})</h2>
+            <h2 className="text-lg font-semibold text-white">
+              Steps ({steps.length})
+            </h2>
             <button
               onClick={saveWorkflow}
               disabled={saving}
               className="px-4 py-2 bg-[#22C55E] hover:bg-[#16A34A] text-white font-medium rounded-lg transition-colors disabled:opacity-50"
             >
-              {saving ? 'Saving...' : 'Save Workflow'}
+              {saving ? "Saving..." : "Save Workflow"}
             </button>
           </div>
 
@@ -130,11 +150,18 @@ export function WorkflowEditorPage() {
           ) : (
             <div className="space-y-2">
               {steps.map((step) => (
-                <div key={step.id} className="bg-[#111827] border border-[#1F2937] rounded-lg p-4">
+                <div
+                  key={step.id}
+                  className="bg-[#111827] border border-[#1F2937] rounded-lg p-4"
+                >
                   <div className="flex justify-between items-start mb-2">
                     <div>
-                      <span className="text-[#4F8CFF] font-semibold">Step {step.order}</span>
-                      <p className="text-white">{step.config.method} {step.config.url}</p>
+                      <span className="text-[#4F8CFF] font-semibold">
+                        Step {step.order}
+                      </span>
+                      <p className="text-white">
+                        {step.config.method} {step.config.url}
+                      </p>
                     </div>
                     <button
                       onClick={() => removeStep(step.id)}
