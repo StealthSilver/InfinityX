@@ -1,5 +1,5 @@
-import { useState, useCallback } from 'react';
-import api from '../lib/api';
+import { useState, useCallback } from "react";
+import api from "../lib/api";
 
 interface User {
   id: string;
@@ -16,7 +16,7 @@ interface AuthContextType {
 
 export function useAuth(): AuthContextType {
   const [user, setUser] = useState<User | null>(() => {
-    const stored = localStorage.getItem('auth_user');
+    const stored = localStorage.getItem("auth_user");
     return stored ? JSON.parse(stored) : null;
   });
   const [loading, setLoading] = useState(false);
@@ -24,9 +24,9 @@ export function useAuth(): AuthContextType {
   const signup = useCallback(async (email: string, password: string) => {
     setLoading(true);
     try {
-      const { data } = await api.post('/auth/signup', { email, password });
-      localStorage.setItem('auth_token', data.token);
-      localStorage.setItem('auth_user', JSON.stringify(data.user));
+      const { data } = await api.post("/api/auth/signup", { email, password });
+      localStorage.setItem("auth_token", data.token);
+      localStorage.setItem("auth_user", JSON.stringify(data.user));
       setUser(data.user);
     } finally {
       setLoading(false);
@@ -36,9 +36,9 @@ export function useAuth(): AuthContextType {
   const login = useCallback(async (email: string, password: string) => {
     setLoading(true);
     try {
-      const { data } = await api.post('/auth/login', { email, password });
-      localStorage.setItem('auth_token', data.token);
-      localStorage.setItem('auth_user', JSON.stringify(data.user));
+      const { data } = await api.post("/api/auth/login", { email, password });
+      localStorage.setItem("auth_token", data.token);
+      localStorage.setItem("auth_user", JSON.stringify(data.user));
       setUser(data.user);
     } finally {
       setLoading(false);
@@ -46,8 +46,8 @@ export function useAuth(): AuthContextType {
   }, []);
 
   const logout = useCallback(() => {
-    localStorage.removeItem('auth_token');
-    localStorage.removeItem('auth_user');
+    localStorage.removeItem("auth_token");
+    localStorage.removeItem("auth_user");
     setUser(null);
   }, []);
 
