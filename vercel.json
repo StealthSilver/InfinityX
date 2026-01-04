@@ -1,7 +1,8 @@
 {
-  "buildCommand": "cd apps/backend && npx prisma generate && npm run build",
+  "root": "apps/backend",
+  "buildCommand": "npm run build",
   "installCommand": "npm install",
-  "outputDirectory": "apps/backend/dist",
+  "outputDirectory": "dist",
   "env": {
     "NODE_ENV": "production"
   }
