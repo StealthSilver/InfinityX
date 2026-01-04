@@ -1,5 +1,8 @@
 {
-  "buildCommand": "cd apps/backend && pnpm install && npm run build && npx prisma generate",
-  "installCommand": "pnpm install",
-  "outputDirectory": "apps/backend/dist"
+  "buildCommand": "cd apps/backend && npm install && npm run build && npx prisma generate",
+  "installCommand": "npm install",
+  "outputDirectory": "apps/backend/dist",
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
