@@ -1,8 +1,5 @@
 {
-  "buildCommand": "cd apps/backend && npm run build",
+  "buildCommand": "npm install --prefix apps/backend && npm run build --prefix apps/backend",
   "installCommand": "npm install",
-  "outputDirectory": "apps/backend/dist",
-  "env": {
-    "NODE_ENV": "production"
-  }
+  "outputDirectory": "apps/backend/dist"
 }
