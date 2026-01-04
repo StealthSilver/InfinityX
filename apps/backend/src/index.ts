@@ -1,7 +1,10 @@
 import dotenv from "dotenv";
 import path from "path";
 
-dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
+// Load .env.local only in development
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
+}
 
 import express from "express";
 import cors from "cors";
